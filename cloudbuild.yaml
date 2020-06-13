@@ -1,13 +1,14 @@
 steps:
 - id: "Rodando Teste Unitario"
   name: 'gcr.io/cloud-builders/go'
-  args: ['test', './src']
+  args: ['test', './src/soma']
   env: ['GOPATH=.']
 
-# - name: 'gcr.io/cloud-builders/docker'
-#   args: ['build', '-t', 'gcr.io/$PROJECT_ID/soma-go:latest', '.']
-# - name: 'gcr.io/cloud-builders/docker'
-#   args: ['push', 'gcr.io/$PROJECT_ID/soma-go:latest']
+- id: "Push Image"
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/$PROJECT_ID/soma-go:latest', '.']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/$PROJECT_ID/soma-go:latest']
 
-# images: 
-# - 'gcr.io/$PROJECT_ID/soma-go:latest'
+images: 
+- 'gcr.io/$PROJECT_ID/soma-go:latest'
