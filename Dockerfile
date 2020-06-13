@@ -6,7 +6,7 @@ FROM golang:alpine AS builder
 # Git is required for fetching the dependencies.
 RUN apk update && apk add --no-cache git
 WORKDIR $GOPATH/src/mypackage/myapp/
-COPY . .
+COPY ./src/soma .
 # Fetch dependencies.
 # Using go get.
 RUN go get -d -v
