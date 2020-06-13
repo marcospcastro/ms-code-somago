@@ -1,7 +1,7 @@
 steps:
 - id: "Rodando Teste Unitario"
   name: 'gcr.io/cloud-builders/go'
-  args: ['test', 'github.com/marcospcastro/ms-code-somago']
+  args: ['test', './src']
   env: ['GOPATH=.']
 
 # - name: 'gcr.io/cloud-builders/docker'
