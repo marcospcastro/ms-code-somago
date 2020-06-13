@@ -1,8 +1,12 @@
 steps:
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/$PROJECT_ID/soma-go:latest', '.']
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/$PROJECT_ID/soma-go:latest']
+- id: "Rodando Teste Unitario"
+  name: 'gcr.io/cloud-builders/go'
+  args: ['test ', 'github.com/marcospcastro/ms-code-somago']
 
-images: 
-- 'gcr.io/$PROJECT_ID/soma-go:latest'
+# - name: 'gcr.io/cloud-builders/docker'
+#   args: ['build', '-t', 'gcr.io/$PROJECT_ID/soma-go:latest', '.']
+# - name: 'gcr.io/cloud-builders/docker'
+#   args: ['push', 'gcr.io/$PROJECT_ID/soma-go:latest']
+
+# images: 
+# - 'gcr.io/$PROJECT_ID/soma-go:latest'
